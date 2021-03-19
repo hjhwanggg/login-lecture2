@@ -11,11 +11,14 @@ function login() {
         id: id.value,
         psword: psword.value,
     };
+    // 데이터 전달
     fetch("/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(req),
-    });
+    })
+    .then((res) => res.json())
+    .then((res) => console.log(res));
 }
